@@ -40,7 +40,6 @@ public class Main {
                     System.out.println("1 - Ajouter un produit");
                     System.out.println("2 - Modifier un produit");
                     System.out.println("3 - Supprimer un produit ");
-                    System.out.println("4 - Modifier un produit");
                     System.out.println("9 - Quitter ");
                     choix_sm_one =  sc.nextInt();
                     switch(choix_sm_one){
