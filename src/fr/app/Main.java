@@ -132,6 +132,7 @@ public class Main {
                             Stream<Produit> strMyProduit = listeMyProduit.stream();
                             strMyProduit.map(p -> p.getLabel()).forEach(p -> System.out.println(p));
                             str.close();
+                            System.out.println("Selectionne un porduit à ajouter ex: 0 -> le produit le plus haut de la liste");
                             int index = sc.nextInt();
                             listeMyProduit.add(listeProduit.get(index));
                             System.out.println("Mise à jour du panier");

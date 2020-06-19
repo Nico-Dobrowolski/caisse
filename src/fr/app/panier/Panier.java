@@ -10,17 +10,16 @@ public class Panier implements IPanier {
     float prixTotal;
 
     public Panier() {
-
     }
-
+    //Recupere une liste de produit
     public void saveOrder(List produit) {
         this.produit = produit;
     }
-
+    //Affiche le prix gloabl
     public float getPrixTotal() {
         return prixTotal;
     }
-
+    //Sert à faire le cumule des achats
     public void setPrixTotal(float prixTotal) {
         this.prixTotal = this.prixTotal + prixTotal;
     }
