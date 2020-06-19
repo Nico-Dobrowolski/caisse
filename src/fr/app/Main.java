@@ -1,9 +1,15 @@
 package fr.app;
+import fr.app.produit.Produit;
+
 import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
+        List<Produit> listeProduit = new ArrayList<>();
+
         System.out.println("_________________");
         System.out.println("CESI Marketplace");
         System.out.println("_________________");
@@ -29,18 +35,67 @@ public class Main {
                     choix_sm_one =  sc.nextInt();
                     switch(choix_sm_one){
                         //Call function addProduct
-                        case 1 : System.out.println("Sous menu 1-1");
+                        case 1 : {
+
+                            /*
+                            *
+                            * /!\ impossible d'ajouter des produits avec new Produit en boucle car il ne garde pas le n-1
+                            *
+                            * */
+
+                            //Récuperation des infos produit
+                            System.out.println("id du produit");
+                            int product_id =  sc.nextInt();
+                            //////////////////////////////////////
+                            System.out.println("Label du produit");
+                            String product_label =  sc.next();
+                            //////////////////////////////////////
+                            System.out.println("Prix du produit");
+                            float product_prix = sc.nextFloat();
+                            //////////////////////////////////////
+                            //Création du produit avec la class Produit
+                            Produit newProduit = new Produit(product_id,product_label,product_prix);
+                            listeProduit.add(newProduit);
+                        }
                         break;
                         //Call function changeProduct
-                        case 2 : System.out.println("Sous menu 1-2");
+                        case 2 : {
+                            System.out.println("Voici la liste des produits");
+                            Stream<Produit> str = listeProduit.stream();
+                            str.map(p -> p.getLabel()).forEach(p -> System.out.println(p));
+                            str.close();
+                            //Récuperation des infos produit
+                            System.out.println("id du produit");
+                            int product_id =  sc.nextInt();
+                            //////////////////////////////////////
+                            System.out.println("Label du produit");
+                            String product_label =  sc.next();
+                            //////////////////////////////////////
+                            System.out.println("Prix du produit");
+                            float product_prix = sc.nextFloat();
+                            //////////////////////////////////////
+                            System.out.println("Selectionner un porduit à modifier ex: 0 -> le produit le plus haut de la liste");
+                            int index =  sc.nextInt();
+                            //Modification du produit avec la class Produit
+                            listeProduit.set(index,  new Produit(product_id,product_label,product_prix));
+                        }
                         break;
                         //Call function deleteProduct
-                        case 3 : System.out.println("Sous menu 1-3");
+                        case 3 : {
+                            System.out.println("Voici la liste des produits");
+                            Stream<Produit> str = listeProduit.stream();
+                            str.map(p -> p.getLabel()).forEach(p -> System.out.println(p));
+                            str.close();
+                            System.out.println("Selectionner un porduit à supprimer ex: 0 -> le produit le plus haut de la liste");
+                            int index =  sc.nextInt();
+                            listeProduit.remove(index);
+                            System.out.println("Voici la nouvelle liste des produits");
+                            Stream<Produit> strNew = listeProduit.stream();
+                            strNew.map(p -> p.getLabel()).forEach(p -> System.out.println(p));
+                            strNew.close();
+                        }
                         break;
-                        //Call function modifyProduct
-                        case 4 : System.out.println("Sous menu 1-4");
-                        break;
-                        case 9 : arret = true;
+                        case 9 : sousmenu = 0;
                         break;
                         default : System.out.println("entrez un choix entre");
                         break;
@@ -66,7 +121,7 @@ public class Main {
                         break;
                         case 5 : System.out.println("Sous menu 1-5");
                         break;
-                        case 9 : arret = true;
+                        case 9 : sousmenu = 0;
                         break;
                         default : System.out.println("entrez un choix");
                         break;
