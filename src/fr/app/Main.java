@@ -178,6 +178,7 @@ public class Main {
                                 System.out.println("Achat validé !");
                                 //écriture dans le fichier serai bien
                                 panier.saveOrder(listeMyProduit);
+                                listeMyProduit.clear();
                             }else{
                                 System.out.println("Retour au menu pour vérification");
                             }
