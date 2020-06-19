@@ -1,6 +1,6 @@
 package fr.app.produit;
 
-public class Produit {
+public class Produit implements IProduit {
 
     int id;
     String label;
@@ -10,7 +10,6 @@ public class Produit {
 
     }
 
-
     public Produit(int id, String label, float prix) {
         this.id = id;
         this.label = label;
@@ -18,31 +17,12 @@ public class Produit {
     }
 
     public String getLabel() {
-        return label+" "+prix+"€";
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
+        return id+":"+label+" "+prix+"€";
     }
 
     public float getPrix() {
         return prix;
     }
 
-    public void setPrix(float prix) {
-        this.prix = prix;
-    }
 
-    public void changeProduct(int id){
-
-    }
-
-
-    public void addProduct(int id, String label, float prix){
-
-    }
-
-
-    public void contains(String p) {
-    }
 }
